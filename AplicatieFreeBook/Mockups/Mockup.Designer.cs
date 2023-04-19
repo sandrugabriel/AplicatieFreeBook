@@ -28,88 +28,154 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pctImg = new System.Windows.Forms.PictureBox();
-            this.lblText1 = new System.Windows.Forms.Label();
-            this.lblTex2 = new System.Windows.Forms.Label();
-            this.btnLogare = new System.Windows.Forms.Button();
             this.btnInreg = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pctImg)).BeginInit();
+            this.lblNume = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblConfParola = new System.Windows.Forms.Label();
+            this.lblParola = new System.Windows.Forms.Label();
+            this.lblPrenume = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtConfParola = new System.Windows.Forms.TextBox();
+            this.txtParola = new System.Windows.Forms.TextBox();
+            this.txtPrenume = new System.Windows.Forms.TextBox();
+            this.txtNume = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // pctImg
-            // 
-            this.pctImg.Location = new System.Drawing.Point(48, 37);
-            this.pctImg.Name = "pctImg";
-            this.pctImg.Size = new System.Drawing.Size(730, 376);
-            this.pctImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctImg.TabIndex = 0;
-            this.pctImg.TabStop = false;
-            // 
-            // lblText1
-            // 
-            this.lblText1.AutoSize = true;
-            this.lblText1.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblText1.Location = new System.Drawing.Point(12, 12);
-            this.lblText1.Name = "lblText1";
-            this.lblText1.Size = new System.Drawing.Size(792, 36);
-            this.lblText1.TabIndex = 1;
-            this.lblText1.Text = "FreeBook este o platforma care faciliteaza imprumutul de carti";
-            // 
-            // lblTex2
-            // 
-            this.lblTex2.AutoSize = true;
-            this.lblTex2.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTex2.Location = new System.Drawing.Point(44, 402);
-            this.lblTex2.Name = "lblTex2";
-            this.lblTex2.Size = new System.Drawing.Size(744, 24);
-            this.lblTex2.TabIndex = 2;
-            this.lblTex2.Text = "Fiecare utilizator are la dispozitie un numar de 3 carti pe care le poate imprumu" +
-    "ta simultan";
-            // 
-            // btnLogare
-            // 
-            this.btnLogare.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogare.Location = new System.Drawing.Point(195, 497);
-            this.btnLogare.Name = "btnLogare";
-            this.btnLogare.Size = new System.Drawing.Size(189, 70);
-            this.btnLogare.TabIndex = 3;
-            this.btnLogare.Text = "Logare";
-            this.btnLogare.UseVisualStyleBackColor = true;
             // 
             // btnInreg
             // 
-            this.btnInreg.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInreg.Location = new System.Drawing.Point(488, 497);
+            this.btnInreg.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInreg.Location = new System.Drawing.Point(306, 516);
             this.btnInreg.Name = "btnInreg";
-            this.btnInreg.Size = new System.Drawing.Size(189, 70);
+            this.btnInreg.Size = new System.Drawing.Size(171, 67);
             this.btnInreg.TabIndex = 4;
             this.btnInreg.Text = "Inregistrare";
             this.btnInreg.UseVisualStyleBackColor = true;
+            // 
+            // lblNume
+            // 
+            this.lblNume.AutoSize = true;
+            this.lblNume.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNume.Location = new System.Drawing.Point(83, 171);
+            this.lblNume.Name = "lblNume";
+            this.lblNume.Size = new System.Drawing.Size(77, 30);
+            this.lblNume.TabIndex = 5;
+            this.lblNume.Text = "Nume";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(83, 104);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(67, 30);
+            this.lblEmail.TabIndex = 6;
+            this.lblEmail.Text = "Email";
+            // 
+            // lblConfParola
+            // 
+            this.lblConfParola.AutoSize = true;
+            this.lblConfParola.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfParola.Location = new System.Drawing.Point(83, 371);
+            this.lblConfParola.Name = "lblConfParola";
+            this.lblConfParola.Size = new System.Drawing.Size(200, 30);
+            this.lblConfParola.TabIndex = 7;
+            this.lblConfParola.Text = "Confirmare parola";
+            // 
+            // lblParola
+            // 
+            this.lblParola.AutoSize = true;
+            this.lblParola.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblParola.Location = new System.Drawing.Point(83, 303);
+            this.lblParola.Name = "lblParola";
+            this.lblParola.Size = new System.Drawing.Size(78, 30);
+            this.lblParola.TabIndex = 8;
+            this.lblParola.Text = "Parola";
+            // 
+            // lblPrenume
+            // 
+            this.lblPrenume.AutoSize = true;
+            this.lblPrenume.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrenume.Location = new System.Drawing.Point(83, 240);
+            this.lblPrenume.Name = "lblPrenume";
+            this.lblPrenume.Size = new System.Drawing.Size(107, 30);
+            this.lblPrenume.TabIndex = 9;
+            this.lblPrenume.Text = "Prenume";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(383, 104);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(332, 33);
+            this.txtEmail.TabIndex = 10;
+            // 
+            // txtConfParola
+            // 
+            this.txtConfParola.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfParola.Location = new System.Drawing.Point(383, 371);
+            this.txtConfParola.Name = "txtConfParola";
+            this.txtConfParola.Size = new System.Drawing.Size(332, 34);
+            this.txtConfParola.TabIndex = 12;
+            // 
+            // txtParola
+            // 
+            this.txtParola.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtParola.Location = new System.Drawing.Point(383, 303);
+            this.txtParola.Name = "txtParola";
+            this.txtParola.Size = new System.Drawing.Size(332, 34);
+            this.txtParola.TabIndex = 13;
+            // 
+            // txtPrenume
+            // 
+            this.txtPrenume.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrenume.Location = new System.Drawing.Point(383, 240);
+            this.txtPrenume.Name = "txtPrenume";
+            this.txtPrenume.Size = new System.Drawing.Size(332, 34);
+            this.txtPrenume.TabIndex = 14;
+            // 
+            // txtNume
+            // 
+            this.txtNume.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNume.Location = new System.Drawing.Point(383, 171);
+            this.txtNume.Name = "txtNume";
+            this.txtNume.Size = new System.Drawing.Size(332, 34);
+            this.txtNume.TabIndex = 15;
             // 
             // Mockup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 632);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(833, 632);
+            this.Controls.Add(this.txtNume);
+            this.Controls.Add(this.txtPrenume);
+            this.Controls.Add(this.txtParola);
+            this.Controls.Add(this.txtConfParola);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.lblPrenume);
+            this.Controls.Add(this.lblParola);
+            this.Controls.Add(this.lblConfParola);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.lblNume);
             this.Controls.Add(this.btnInreg);
-            this.Controls.Add(this.btnLogare);
-            this.Controls.Add(this.lblText1);
-            this.Controls.Add(this.lblTex2);
-            this.Controls.Add(this.pctImg);
             this.Name = "Mockup";
             this.Text = "Mockup";
-            ((System.ComponentModel.ISupportInitialize)(this.pctImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pctImg;
-        private System.Windows.Forms.Label lblText1;
-        private System.Windows.Forms.Label lblTex2;
-        private System.Windows.Forms.Button btnLogare;
         private System.Windows.Forms.Button btnInreg;
+        private System.Windows.Forms.Label lblNume;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblConfParola;
+        private System.Windows.Forms.Label lblParola;
+        private System.Windows.Forms.Label lblPrenume;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtConfParola;
+        private System.Windows.Forms.TextBox txtParola;
+        private System.Windows.Forms.TextBox txtPrenume;
+        private System.Windows.Forms.TextBox txtNume;
     }
 }

@@ -62,6 +62,9 @@
     <Compile Include="Models\Carte.cs" />
     <Compile Include="Models\Imprumut.cs" />
     <Compile Include="Models\Utilizator.cs" />
+    <Compile Include="Panel-uri\pnlInregistrare.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Panel-uri\pnlStart.cs">
       <SubType>Component</SubType>
     </Compile>
