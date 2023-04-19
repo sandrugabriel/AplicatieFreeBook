@@ -41,5 +41,31 @@ namespace AplicatieFreeBook.Controllers
 
         }
 
+        public bool verifEmail(string email)
+        {
+
+            for (int i = 0; i < utilizatorii.Count; i++)
+            {
+
+                if (utilizatorii[i].getemail() == email)
+                {
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
+
+        public void saveNewClient(string textul)
+        {
+
+            string path = Application.StartupPath + @"/data/utilizatori.txt";
+
+            File.AppendAllText(path, textul + "\n");
+
+
+        }
+
     }
 }

@@ -17,9 +17,29 @@ namespace AplicatieFreeBook
         {
             InitializeComponent();
 
-            this.Controls.Add(new pnlStart());
+            this.Controls.Add(new pnlInregistrare(this));
 
 
         }
+
+        public void removePnl(string pnl)
+        {
+
+            Control control = null;
+
+            foreach (Control c in this.Controls)
+            {
+
+                if (c.Name.Equals(pnl))
+                {
+                    control = c;
+                }
+
+            }
+
+            this.Controls.Remove(control);
+        }
+
+
     }
 }
