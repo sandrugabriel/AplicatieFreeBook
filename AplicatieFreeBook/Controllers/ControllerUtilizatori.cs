@@ -67,5 +67,22 @@ namespace AplicatieFreeBook.Controllers
 
         }
 
+        public bool verifAut(string email, string parola)
+        {
+
+            for (int i = 0; i < utilizatorii.Count; i++)
+            {
+
+                if (utilizatorii[i].getemail() == email && utilizatorii[i].getpass() == parola)
+                {
+                    return true;
+                }
+
+            }
+
+            return false;
+
+        }
+
     }
 }

@@ -32,6 +32,10 @@ namespace AplicatieFreeBook.Panel_uri
         {
             controllerUtilizatori = new ControllerUtilizatori();
             form = form1;
+            this.form.MaximumSize = new System.Drawing.Size(833, 632);
+            this.form.MinimumSize = new System.Drawing.Size(833, 632);
+            this.form.Size = new System.Drawing.Size(833, 6322);
+
             erori = new List<string>();
             this.Name = "pnlInregistrare";
             this.Text = "Creeaza Cont FreeBook";
@@ -64,7 +68,7 @@ namespace AplicatieFreeBook.Panel_uri
 
             // btnInreg
             this.btnInreg.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F);
-            this.btnInreg.Location = new System.Drawing.Point(306, 516);
+            this.btnInreg.Location = new System.Drawing.Point(306, 485);
             this.btnInreg.Name = "btnInreg";
             this.btnInreg.Size = new System.Drawing.Size(171, 67);
             this.btnInreg.Text = "Inregistrare";
