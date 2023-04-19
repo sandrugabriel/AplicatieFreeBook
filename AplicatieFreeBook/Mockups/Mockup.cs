@@ -1,5 +1,4 @@
-﻿using AplicatieFreeBook.Panel_uri;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,17 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AplicatieFreeBook
+namespace AplicatieFreeBook.Mockups
 {
-    public partial class AplicatieFreeBook : Form
+    public partial class Mockup : Form
     {
-        public AplicatieFreeBook()
+        public Mockup()
         {
             InitializeComponent();
-
-            this.Controls.Add(new pnlStart());
-
-
         }
     }
 }
