@@ -17,12 +17,17 @@ namespace AplicatieFreeBook.Panel_uri
         private Button btnLogare;
         private Button btnInreg;
 
-        public pnlStart()
-        {
+        AplicatieFreeBook form;
 
-            this.Size = new System.Drawing.Size(902, 697);
+        public pnlStart(AplicatieFreeBook form1)
+        {
+            form = form1;
+            this.form.MaximumSize = new System.Drawing.Size(802, 607);
+            this.form.MinimumSize = new System.Drawing.Size(802, 607);
+            this.Size = new System.Drawing.Size(802, 607);
             this.Name = "pnlStart";
             this.Text = "Start";
+            this.BackColor = System.Drawing.Color.Silver;
 
             this.pctImg = new PictureBox();
             this.lblText1 = new Label();
@@ -43,7 +48,7 @@ namespace AplicatieFreeBook.Panel_uri
             this.pctImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             string path = Application.StartupPath + @"/imagini/sigla_Biblioteca_3.jpg";
             this.pctImg.Image = Image.FromFile(path);
-             
+
             // lblText1
             this.lblText1.AutoSize = true;
             this.lblText1.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 16.2F);
@@ -51,7 +56,7 @@ namespace AplicatieFreeBook.Panel_uri
             this.lblText1.Name = "lblText1";
             this.lblText1.Size = new System.Drawing.Size(792, 36);
             this.lblText1.Text = "FreeBook este o platforma care faciliteaza imprumutul de carti";
-             
+
             // lblTex2
             this.lblTex2.AutoSize = true;
             this.lblTex2.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 10.8F);
@@ -59,26 +64,41 @@ namespace AplicatieFreeBook.Panel_uri
             this.lblTex2.Name = "lblTex2";
             this.lblTex2.Size = new System.Drawing.Size(744, 24);
             this.lblTex2.Text = "Fiecare utilizator are la dispozitie un numar de 3 carti pe care le poate imprumuta simultan";
-             
+
             // btnLogare
             this.btnLogare.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 16.2F);
             this.btnLogare.Location = new System.Drawing.Point(130, 475);
             this.btnLogare.Name = "btnLogare";
             this.btnLogare.Size = new System.Drawing.Size(189, 70);
             this.btnLogare.Text = "Logare";
-             
+            this.btnLogare.Click += new EventHandler(btnLogare_Click);
+
             // btnInreg
             this.btnInreg.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 16.2F);
             this.btnInreg.Location = new System.Drawing.Point(370, 475);
             this.btnInreg.Name = "btnInreg";
             this.btnInreg.Size = new System.Drawing.Size(189, 70);
             this.btnInreg.Text = "Inregistrare";
+            this.btnInreg.Click += new EventHandler(btnInreg_Click);
 
         }
 
+        private void btnLogare_Click(object sender, EventArgs e)
+        {
+
+            this.form.removePnl("pnlStart");
+            this.form.Controls.Add(new pnlLogare(form));
 
 
+        }
+        private void btnInreg_Click(object sender, EventArgs e)
+        {
 
+            this.form.removePnl("pnlStart");
+            this.form.Controls.Add(new pnlInregistrare(form));
+
+
+        }
 
     }
 }
