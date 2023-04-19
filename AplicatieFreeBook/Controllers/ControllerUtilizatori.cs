@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AplicatieFreeBook.Controllers
 {
@@ -77,12 +78,18 @@ namespace AplicatieFreeBook.Controllers
                 {
                     return true;
                 }
-
             }
 
             return false;
 
         }
+
+        public List<Utilizator> getUtilizator()
+        {
+
+            return utilizatorii;
+        }
+
 
     }
 }

@@ -90,7 +90,7 @@ namespace AplicatieFreeBook.Panel_uri
             if (controllerUtilizatori.verifAut(txtEmail.Text, txtParola.Text))
             {
                 this.form.removePnl("pnlLogare");
-
+                this.form.Controls.Add(new pnlMeniu(txtEmail.Text, form));
             }
             else
             {

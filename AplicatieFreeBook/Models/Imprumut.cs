@@ -10,14 +10,14 @@ namespace AplicatieFreeBook.Models
     {
 
         private int id;
-        private int id_carte;
+        private string carte;
         private string email;
         private DateTime data_Imprumut;
 
-        public Imprumut(int id, int id_carte, string email, DateTime data_Imprumut)
+        public Imprumut(int id, string carte, string email, DateTime data_Imprumut)
         {
             this.id = id;
-            this.id_carte = id_carte;
+            this.carte = carte;
             this.email = email;
             this.data_Imprumut = data_Imprumut;
         }
@@ -28,7 +28,7 @@ namespace AplicatieFreeBook.Models
             string[] prop = text.Split('*');
 
             this.id = int.Parse(prop[0]);
-            this.id_carte = int.Parse(prop[1]);
+            this.carte = prop[1];
             this.email = prop[2];
             this.data_Imprumut = DateTime.Parse(prop[3]);
 
@@ -39,9 +39,9 @@ namespace AplicatieFreeBook.Models
             return id;
         }
 
-        public int getId_carte()
+        public string getcarte()
         {
-            return id_carte;
+            return carte;
         }
 
         public string getEmail()
