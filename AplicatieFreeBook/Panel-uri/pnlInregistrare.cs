@@ -201,7 +201,7 @@ namespace AplicatieFreeBook.Panel_uri
                 string textul = email + "*" + parola + "*" + nume + "*" + prenume;
                 controllerUtilizatori.saveNewClient(textul);
                 this.form.removePnl("pnlInregistrare");
-
+                this.form.Controls.Add(new pnlMeniu(txtEmail.Text,form));
             }
 
 

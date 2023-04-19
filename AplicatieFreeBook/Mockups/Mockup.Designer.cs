@@ -28,82 +28,223 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLogare = new System.Windows.Forms.Button();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblParola = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtParola = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabDisponibile = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.titlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imprumutare = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabImprum = new System.Windows.Forms.TabPage();
+            this.tabStat = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl1.SuspendLayout();
+            this.tabDisponibile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabImprum.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnLogare
+            // label1
             // 
-            this.btnLogare.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogare.Location = new System.Drawing.Point(284, 323);
-            this.btnLogare.Name = "btnLogare";
-            this.btnLogare.Size = new System.Drawing.Size(171, 67);
-            this.btnLogare.TabIndex = 4;
-            this.btnLogare.Text = "Logare";
-            this.btnLogare.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Email:";
             // 
-            // lblEmail
+            // label2
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(83, 104);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(67, 30);
-            this.lblEmail.TabIndex = 6;
-            this.lblEmail.Text = "Email";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(86, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(20, 24);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "a";
             // 
-            // lblParola
+            // tabControl1
             // 
-            this.lblParola.AutoSize = true;
-            this.lblParola.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblParola.Location = new System.Drawing.Point(83, 203);
-            this.lblParola.Name = "lblParola";
-            this.lblParola.Size = new System.Drawing.Size(78, 30);
-            this.lblParola.TabIndex = 8;
-            this.lblParola.Text = "Parola";
+            this.tabControl1.Controls.Add(this.tabDisponibile);
+            this.tabControl1.Controls.Add(this.tabImprum);
+            this.tabControl1.Controls.Add(this.tabStat);
+            this.tabControl1.Location = new System.Drawing.Point(2, 50);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(925, 586);
+            this.tabControl1.TabIndex = 2;
             // 
-            // txtEmail
+            // tabDisponibile
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(383, 104);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(332, 33);
-            this.txtEmail.TabIndex = 10;
+            this.tabDisponibile.Controls.Add(this.dataGridView1);
+            this.tabDisponibile.Location = new System.Drawing.Point(4, 25);
+            this.tabDisponibile.Name = "tabDisponibile";
+            this.tabDisponibile.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDisponibile.Size = new System.Drawing.Size(917, 557);
+            this.tabDisponibile.TabIndex = 0;
+            this.tabDisponibile.Text = "Carti disponibile";
+            this.tabDisponibile.UseVisualStyleBackColor = true;
             // 
-            // txtParola
+            // dataGridView1
             // 
-            this.txtParola.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtParola.Location = new System.Drawing.Point(383, 203);
-            this.txtParola.Name = "txtParola";
-            this.txtParola.Size = new System.Drawing.Size(332, 34);
-            this.txtParola.TabIndex = 13;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.titlu,
+            this.autor,
+            this.gen,
+            this.imprumutare});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 9);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(901, 542);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // titlu
+            // 
+            this.titlu.HeaderText = "Titlu";
+            this.titlu.MinimumWidth = 6;
+            this.titlu.Name = "titlu";
+            this.titlu.ReadOnly = true;
+            this.titlu.Width = 250;
+            // 
+            // autor
+            // 
+            this.autor.HeaderText = "Autor";
+            this.autor.MinimumWidth = 6;
+            this.autor.Name = "autor";
+            this.autor.ReadOnly = true;
+            this.autor.Width = 190;
+            // 
+            // gen
+            // 
+            this.gen.HeaderText = "Gen";
+            this.gen.MinimumWidth = 6;
+            this.gen.Name = "gen";
+            this.gen.ReadOnly = true;
+            this.gen.Width = 200;
+            // 
+            // imprumutare
+            // 
+            this.imprumutare.HeaderText = "Imprumutare carte";
+            this.imprumutare.MinimumWidth = 6;
+            this.imprumutare.Name = "imprumutare";
+            this.imprumutare.ReadOnly = true;
+            this.imprumutare.Width = 207;
+            // 
+            // tabImprum
+            // 
+            this.tabImprum.Controls.Add(this.dataGridView2);
+            this.tabImprum.Location = new System.Drawing.Point(4, 25);
+            this.tabImprum.Name = "tabImprum";
+            this.tabImprum.Padding = new System.Windows.Forms.Padding(3);
+            this.tabImprum.Size = new System.Drawing.Size(917, 557);
+            this.tabImprum.TabIndex = 1;
+            this.tabImprum.Text = "Carti imprumutate";
+            this.tabImprum.UseVisualStyleBackColor = true;
+            // 
+            // tabStat
+            // 
+            this.tabStat.Location = new System.Drawing.Point(4, 25);
+            this.tabStat.Name = "tabStat";
+            this.tabStat.Size = new System.Drawing.Size(917, 557);
+            this.tabStat.TabIndex = 2;
+            this.tabStat.Text = "Statistici biblioteca";
+            this.tabStat.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dataGridView2.Location = new System.Drawing.Point(8, 7);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(901, 542);
+            this.dataGridView2.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Titlu";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 250;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Autor";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 190;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Gen";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Imprumutare carte";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 207;
             // 
             // Mockup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(841, 460);
-            this.Controls.Add(this.txtParola);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.lblParola);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.btnLogare);
+            this.ClientSize = new System.Drawing.Size(939, 648);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Name = "Mockup";
             this.Text = "Mockup";
+            this.tabControl1.ResumeLayout(false);
+            this.tabDisponibile.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabImprum.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnLogare;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblParola;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtParola;
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabDisponibile;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titlu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn autor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imprumutare;
+        private System.Windows.Forms.TabPage tabImprum;
+        private System.Windows.Forms.TabPage tabStat;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

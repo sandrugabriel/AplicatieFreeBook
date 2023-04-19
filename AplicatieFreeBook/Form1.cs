@@ -17,7 +17,7 @@ namespace AplicatieFreeBook
         {
             InitializeComponent();
 
-            this.Controls.Add(new pnlStart(this));
+            this.Controls.Add(new pnlMeniu("gabi@gmail.com",this));
 
 
         }

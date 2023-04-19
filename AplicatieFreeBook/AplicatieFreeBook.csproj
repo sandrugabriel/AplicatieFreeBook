@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ControllerCarti.cs" />
+    <Compile Include="Controllers\ControllerImprumutari.cs" />
     <Compile Include="Controllers\ControllerUtilizatori.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -66,6 +68,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Panel-uri\pnlLogare.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panel-uri\pnlMeniu.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Panel-uri\pnlStart.cs">
