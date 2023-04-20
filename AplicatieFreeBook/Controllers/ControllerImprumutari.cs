@@ -90,6 +90,48 @@ namespace AplicatieFreeBook.Controllers
             cartiiNeimp = cartiiNeimp.Distinct().ToList();
             return cartiiNeimp;
         }
+        public void saveNewImprumut(string textul)
+        {
+
+            string path = Application.StartupPath + @"/data/imprumuturi.txt";
+
+            File.AppendAllText(path, textul + "\n");
+
+
+        }
+
+        public Imprumut getByid(int id)
+        {
+
+            for (int i = 0; i < imprumuturi.Count; i++)
+            {
+                if (id == imprumuturi[i].getId())
+                {
+                    return imprumuturi[i];
+                }
+            }
+
+            return null;
+        }
+
+        public int generareId()
+        {
+
+            Random random = new Random();
+
+            int id = random.Next();
+
+            while (this.getByid(id) != null)
+            {
+
+                id = random.Next();
+
+
+            }
+
+            return id;
+        }
+
 
     }
 }

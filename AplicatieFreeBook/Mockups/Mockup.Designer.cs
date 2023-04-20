@@ -38,12 +38,12 @@
             this.gen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imprumutare = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabImprum = new System.Windows.Forms.TabPage();
-            this.tabStat = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabStat = new System.Windows.Forms.TabPage();
+            this.titlu2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.autor2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gen2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.impr2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabDisponibile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -151,6 +151,21 @@
             this.tabImprum.Text = "Carti imprumutate";
             this.tabImprum.UseVisualStyleBackColor = true;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.titlu2,
+            this.autor2,
+            this.gen2,
+            this.impr2});
+            this.dataGridView2.Location = new System.Drawing.Point(8, 7);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(901, 542);
+            this.dataGridView2.TabIndex = 1;
+            // 
             // tabStat
             // 
             this.tabStat.Location = new System.Drawing.Point(4, 25);
@@ -160,52 +175,37 @@
             this.tabStat.Text = "Statistici biblioteca";
             this.tabStat.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // titlu2
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dataGridView2.Location = new System.Drawing.Point(8, 7);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(901, 542);
-            this.dataGridView2.TabIndex = 1;
+            this.titlu2.HeaderText = "Titlu";
+            this.titlu2.MinimumWidth = 6;
+            this.titlu2.Name = "titlu2";
+            this.titlu2.ReadOnly = true;
+            this.titlu2.Width = 250;
             // 
-            // dataGridViewTextBoxColumn1
+            // autor2
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Titlu";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 250;
+            this.autor2.HeaderText = "Autor";
+            this.autor2.MinimumWidth = 6;
+            this.autor2.Name = "autor2";
+            this.autor2.ReadOnly = true;
+            this.autor2.Width = 190;
             // 
-            // dataGridViewTextBoxColumn2
+            // gen2
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Autor";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 190;
+            this.gen2.HeaderText = "Gen";
+            this.gen2.MinimumWidth = 6;
+            this.gen2.Name = "gen2";
+            this.gen2.ReadOnly = true;
+            this.gen2.Width = 200;
             // 
-            // dataGridViewTextBoxColumn3
+            // impr2
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Gen";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Imprumutare carte";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 207;
+            this.impr2.HeaderText = "Imprumutare carte";
+            this.impr2.MinimumWidth = 6;
+            this.impr2.Name = "impr2";
+            this.impr2.ReadOnly = true;
+            this.impr2.Width = 207;
             // 
             // Mockup
             // 
@@ -242,9 +242,9 @@
         private System.Windows.Forms.TabPage tabImprum;
         private System.Windows.Forms.TabPage tabStat;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titlu2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn autor2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gen2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn impr2;
     }
 }
