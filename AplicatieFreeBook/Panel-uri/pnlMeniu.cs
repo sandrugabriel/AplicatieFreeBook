@@ -2,6 +2,7 @@
 using AplicatieFreeBook.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -38,9 +40,9 @@ namespace AplicatieFreeBook.Panel_uri
         private ChartArea chartArea;
         private  Series series;
         private List<string> listNume;
-        private List<int> listId4maxi;
         private int[] listFrecventa;
         private Legend legend;
+        private System.Windows.Forms.ComboBox comboBox;
 
         AplicatieFreeBook form;
 
@@ -55,148 +57,80 @@ namespace AplicatieFreeBook.Panel_uri
 
         public pnlMeniu(string email1, AplicatieFreeBook form1)
         {
-            form = form1;
+
+            form = form1; 
             this.form.MaximumSize = new System.Drawing.Size(939, 688);
             this.form.MinimumSize = new System.Drawing.Size(939, 688);
+            email = email1;
+
+            //PnlMeniu
             this.BackColor = System.Drawing.Color.Silver;
             this.Size = new System.Drawing.Size(939, 648);
-            email = email1;
-            controllerCarti = new ControllerCarti();
-            controllerImprumutari = new ControllerImprumutari();
-            cartiList = new List<Carte>();
-            imprList = new List<Carte>();
-            listNume = new List<string>();
-            listId4maxi = new List<int>();
-            listFrecventa = new int[100];
-
             this.Name = "pnlMeniu";
             this.Text = "Meniu FreeBook";
 
-            this.label1 = new Label();
-            this.label2 = new Label();
-            this.tabControl1 = new TabControl();
-            this.tabDisponibile = new TabPage();
-            this.tabImprum = new TabPage();
-            this.tabStat = new TabPage();
-            this.dataGridView1 = new DataGridView();
-            this.id = new DataGridViewTextBoxColumn();
+            //New
+            this.controllerImprumutari = new ControllerImprumutari();
+            this.comboBox = new System.Windows.Forms.ComboBox();
+            this.imprumutare = new DataGridViewTextBoxColumn();
+            this.datadispon2 = new DataGridViewTextBoxColumn();
+            this.dataImpr2 = new DataGridViewTextBoxColumn();
+            this.titlu2 = new DataGridViewTextBoxColumn();
+            this.autor2 = new DataGridViewTextBoxColumn();
+            this.controllerCarti = new ControllerCarti();
             this.titlu = new DataGridViewTextBoxColumn();
             this.autor = new DataGridViewTextBoxColumn();
+            this.id2 = new DataGridViewTextBoxColumn();
             this.gen = new DataGridViewTextBoxColumn();
-            this.imprumutare = new DataGridViewTextBoxColumn();
-            this.chart = new Chart();
+            this.id = new DataGridViewTextBoxColumn();
+            this.dataGridView2 = new DataGridView();
+            this.dataGridView1 = new DataGridView();
+            this.tabControl1 = new TabControl();
+            this.tabDisponibile = new TabPage();
+            this.cartiList = new List<Carte>();
+            this.listNume = new List<string>();
+            this.listFrecventa = new int[100];
+            this.imprList = new List<Carte>();
             this.chartArea = new ChartArea();
+            this.tabImprum = new TabPage();
+            this.tabStat = new TabPage();
             this.series = new Series();
             this.legend = new Legend();
+            this.label1 = new Label();
+            this.label2 = new Label();
+            this.chart = new Chart();
+
+            //Add
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
 
-            this.dataGridView2 = new DataGridView();
-            this.id2 = new DataGridViewTextBoxColumn();
-            this.titlu2 = new DataGridViewTextBoxColumn();
-            this.autor2 = new DataGridViewTextBoxColumn();
-            this.dataImpr2 = new DataGridViewTextBoxColumn();
-            this.datadispon2 = new DataGridViewTextBoxColumn();
-
             // label1
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 10.8F);
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 24);
-            this.label1.Text = "Email:";
+            labels(label1,new Point(12,9), "Email:");
 
             // label2
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 10.8F);
-            this.label2.Location = new System.Drawing.Point(55, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 24);
-            this.label2.Text = email;
+            labels(label2, new System.Drawing.Point(55, 9), email);
 
             // tabControl1
-            this.tabControl1.Controls.Add(this.tabDisponibile);
-            this.tabControl1.Controls.Add(this.tabImprum);
-            this.tabControl1.Controls.Add(this.tabStat);
-            this.tabControl1.Location = new System.Drawing.Point(2, 50);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Size = new System.Drawing.Size(925, 586);
+            tabControl();
 
             // tabDisponibile
-            this.tabDisponibile.Controls.Add(this.dataGridView1);
-            this.tabDisponibile.Location = new System.Drawing.Point(4, 25);
-            this.tabDisponibile.Name = "tabDisponibile";
-            this.tabDisponibile.Size = new System.Drawing.Size(917, 557);
-            this.tabDisponibile.Text = "Carti disponibile";
+            tabdisponibile();
 
             // tabImprum
-            this.tabImprum.Controls.Add(this.dataGridView2);
-            this.tabImprum.Location = new System.Drawing.Point(4, 25);
-            this.tabImprum.Name = "tabImprum";
-            this.tabImprum.Size = new System.Drawing.Size(917, 557);
-            this.tabImprum.Text = "Carti imprumutate";
-
-
-
+            tabimprum();
 
             //chart
-            this.chart.Location = new System.Drawing.Point(10, 51);
-            this.chart.Size = new System.Drawing.Size(611, 412);
-            listFrecventa = controllerImprumutari.frecventaMaxi();
-            listId4maxi = controllerImprumutari.iduri4Maxime();
-            listNume = controllerImprumutari.listNume();
+            createChart();
+
+            //ComboBox
+            createComboBox();
           
-            chartArea.Name = "ChartArea";
-            this.chart.ChartAreas.Add(chartArea);
-            legend.Name = "Legend";
-            this.chart.Legends.Add(legend);
-            this.chart.Name = "chart";
-            series.ChartType = SeriesChartType.Pie;
-            for (int i = 0; i < listNume.Count; i++)
-            {
-
-                DataPoint datapoint = new DataPoint(0, listFrecventa[i]);
-                datapoint.Label = listFrecventa[i].ToString();
-                datapoint.LegendText = listNume[i];
-                series.Points.Add(datapoint);
-
-            }
-            this.chart.Series.Add(series);
-            this.chart.Text = "chart";
-
-
             // tabStat
-            this.tabStat.Controls.Add(chart);
-            this.tabStat.Location = new System.Drawing.Point(4, 25);
-            this.tabStat.Name = "tabStat";
-            this.tabStat.Size = new System.Drawing.Size(917, 557);
-            this.tabStat.Text = "Statistici biblioteca";
-             
-            
+            tabstart();
 
             // dataGridView1
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.titlu,
-            this.autor,
-            this.gen,
-            this.imprumutare});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 9);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(901, 542);
-            this.dataGridView1.CellClick += new DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            
-            stringCarti = controllerImprumutari.getBooks(DateTime.Now);
-            cartiList = controllerCarti.getCartiNeimprum(stringCarti);
-
-            foreach (var produs in cartiList)
-            {
-                dataGridView1.Rows.Add(produs.getId(),produs.getTitlu(), produs.getAutor(), produs.getGen(),"");
-            }
+            datagrid1();
 
             // id
             this.id.HeaderText = "Id";
@@ -281,6 +215,193 @@ namespace AplicatieFreeBook.Panel_uri
             this.datadispon2.Name = "datadispon2";
             this.datadispon2.ReadOnly = true;
             this.datadispon2.Width = 180;
+
+        }
+
+        private void labels(Label label , Point point, string text)
+        {
+
+            label.AutoSize = true;
+            label.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 10.8F);
+            label.Location = point;
+            label.Text = text;
+
+
+        }
+
+        private void tabControl()
+        {
+            this.tabControl1.Controls.Add(this.tabDisponibile);
+            this.tabControl1.Controls.Add(this.tabImprum);
+            this.tabControl1.Controls.Add(this.tabStat);
+            this.tabControl1.Location = new System.Drawing.Point(2, 50);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Size = new System.Drawing.Size(925, 586);
+
+        }
+
+        private void tabdisponibile() {
+
+            this.tabDisponibile.Controls.Add(this.dataGridView1);
+            this.tabDisponibile.Location = new System.Drawing.Point(4, 25);
+            this.tabDisponibile.Name = "tabDisponibile";
+            this.tabDisponibile.Size = new System.Drawing.Size(917, 557);
+            this.tabDisponibile.Text = "Carti disponibile";
+
+        }
+
+        private void tabimprum()
+        {
+
+            this.tabImprum.Controls.Add(this.dataGridView2);
+            this.tabImprum.Location = new System.Drawing.Point(4, 25);
+            this.tabImprum.Name = "tabImprum";
+            this.tabImprum.Size = new System.Drawing.Size(917, 557);
+            this.tabImprum.Text = "Carti imprumutate";
+
+        }
+
+        private void createChart()
+        {
+            listFrecventa = controllerImprumutari.frecventaMaxi();
+            listNume = controllerImprumutari.listNume();
+
+            this.chart.Location = new System.Drawing.Point(10, 51);
+            this.chart.Size = new System.Drawing.Size(611, 412);
+            this.chart.Legends.Add(legend);
+            this.chart.Name = "chart";
+            this.chart.Text = "chart";
+            this.chart.Series.Add(series);
+            this.chart.ChartAreas.Add(chartArea);
+
+            this.chartArea.Name = "ChartArea";
+            this.legend.Name = "Legend";
+            this.series.ChartType = SeriesChartType.Pie;
+
+            for (int i = 0; i < listNume.Count; i++)
+            {
+                DataPoint datapoint = new DataPoint(0, listFrecventa[i]);
+                datapoint.Label = listFrecventa[i].ToString();
+                datapoint.LegendText = listNume[i];
+                series.Points.Add(datapoint);
+            }
+        }
+
+        private void createComboBox()
+        {
+            this.comboBox.Location = new System.Drawing.Point(670, 68);
+            this.comboBox.Size = new System.Drawing.Size(130, 30);
+            this.comboBox.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 14);
+            this.comboBox.Text = "Style";
+            this.comboBox.Items.Add("StackedArea");
+            this.comboBox.Items.Add("Pie");
+            this.comboBox.Items.Add("Column");
+            this.comboBox.Items.Add("Pyramid");
+            this.comboBox.Items.Add("Area");
+            this.comboBox.Sorted = true;
+            this.comboBox.SelectedIndexChanged += new EventHandler(comboBox_SelectedIndexChanged);
+
+        }
+
+        private void datagrid1()
+        {
+
+            this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.titlu,
+            this.autor,
+            this.gen,
+            this.imprumutare});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 9);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(901, 542);
+            this.dataGridView1.CellClick += new DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+
+            stringCarti = controllerImprumutari.getBooks(DateTime.Now);
+            cartiList = controllerCarti.getCartiNeimprum(stringCarti);
+
+            foreach (var produs in cartiList)
+            {
+                dataGridView1.Rows.Add(produs.getId(), produs.getTitlu(), 
+                                 produs.getAutor(), produs.getGen(), "");
+            }
+
+        }
+
+        private void tabstart()
+        {
+            this.tabStat.Controls.Add(chart);
+            this.tabStat.Controls.Add(comboBox);
+            this.tabStat.Location = new System.Drawing.Point(4, 25);
+            this.tabStat.Name = "tabStat";
+            this.tabStat.Size = new System.Drawing.Size(917, 557);
+            this.tabStat.Text = "Statistici biblioteca";
+        }
+
+        private void styleOne()
+        {
+
+            this.series.Points.Clear();
+
+            for(int i=0;i<listNume.Count;i++)
+            {
+                DataPoint dataPoint = new DataPoint(0, listFrecventa[i]);
+                dataPoint.Label = listNume[i];
+                this.series.Points.Add(dataPoint);
+            }
+            this.series.Name = "Carti";
+
+        }
+
+        private void styleTwo()
+        {
+            this.series.Points.Clear();
+
+            for( int i=0; i < listNume.Count; i++)
+            {
+                DataPoint dataPoint = new DataPoint(0, listFrecventa[i]);
+                dataPoint.Label = listFrecventa[i].ToString();
+                dataPoint.LegendText = listNume[i];
+                this.series.Points.Add( dataPoint );
+            }
+
+        }
+
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboBox.SelectedItem.ToString().Equals("Area"))
+            {
+                this.series.ChartType = SeriesChartType.Area;
+                styleOne();
+            }
+
+            if (comboBox.SelectedItem.ToString().Equals("Column"))
+            {
+                this.series.ChartType = SeriesChartType.Column;
+                styleOne();
+            }
+
+            if (comboBox.SelectedItem.ToString().Equals("Pie"))
+            {
+                this.series.ChartType = SeriesChartType.Pie;
+                styleTwo();
+            }
+
+            if (comboBox.SelectedItem.ToString().Equals("Pyramid"))
+            {
+                this.series.ChartType = SeriesChartType.Pyramid;
+                styleTwo();
+            }
+
+            if (comboBox.SelectedItem.ToString().Equals("StackedArea"))
+            {
+                this.series.ChartType = SeriesChartType.StackedArea;
+                styleOne();
+            }
 
         }
 
