@@ -90,6 +90,37 @@ namespace AplicatieFreeBook.Controllers
             return utilizatorii;
         }
 
+        public Utilizator getByid(int id)
+        {
+
+            for (int i = 0; i < utilizatorii.Count; i++)
+            {
+                if (id == utilizatorii[i].getId())
+                {
+                    return utilizatorii[i];
+                }
+            }
+
+            return null;
+        }
+
+        public int generareID()
+        {
+
+            Random random = new Random();
+
+            int id = random.Next();
+
+            while (this.getByid(id) != null)
+            {
+
+                id = random.Next();
+
+
+            }
+
+            return id;
+        }
 
     }
 }

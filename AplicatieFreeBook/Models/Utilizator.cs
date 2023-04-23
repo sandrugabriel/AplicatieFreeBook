@@ -8,13 +8,15 @@ namespace AplicatieFreeBook.Models
 {
     internal class Utilizator
     {
+        private int id;
         private string email;
         private string password;
         private string nume;
         private string prenume;
 
-        public Utilizator(string email, string pass, string nume, string prenume)
+        public Utilizator(int id,string email, string pass, string nume, string prenume)
         {
+            this.id = id;
             this.email = email;
             this.password = pass;
             this.nume = nume;
@@ -26,11 +28,17 @@ namespace AplicatieFreeBook.Models
 
             string[] porp = text.Split('*');
 
-            this.email = porp[0];
-            this.password = porp[1];
-            this.nume = porp[2];
-            this.prenume = porp[3];
+            this.id = int.Parse(porp[0]);
+            this.email = porp[1];
+            this.password = porp[2];
+            this.nume = porp[3];
+            this.prenume = porp[4];
 
+        }
+
+        public int getId()
+        {
+            return id;
         }
 
         public string getemail()
