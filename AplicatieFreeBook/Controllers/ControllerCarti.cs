@@ -47,5 +47,25 @@ namespace AplicatieFreeBook.Controllers
             return carti;
         }
 
+        public List<Carte> getCartiNeimprum(List<string> stringCarti)
+        {
+            List<Carte> books = new List<Carte>();
+
+            for(int i = 0; i < stringCarti.Count; i++)
+            {
+                for(int j = 0; j < carti.Count; j++)
+                {
+                    if (stringCarti[i].Equals(carti[j].getTitlu()))
+                    {
+                        books.Add(carti[j]);
+                        
+                    }
+                }
+            }
+
+
+            return books;
+        }
+
     }
 }

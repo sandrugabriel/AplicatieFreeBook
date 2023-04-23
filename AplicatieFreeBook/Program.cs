@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AplicatieFreeBook.Controllers;
+using AplicatieFreeBook.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +19,11 @@ namespace AplicatieFreeBook
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AplicatieFreeBook());
+
+           // ControllerImprumutari controllerImprumutari = new ControllerImprumutari();
+          //  List<int> list = controllerImprumutari.iduri4Maxime();
+           // for (int i = 0; i < list.Count; i++)
+           //    MessageBox.Show(list[i].ToString());
         }
     }
 }

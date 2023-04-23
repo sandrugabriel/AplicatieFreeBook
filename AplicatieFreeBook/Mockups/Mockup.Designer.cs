@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -39,16 +42,19 @@
             this.imprumutare = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabImprum = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tabStat = new System.Windows.Forms.TabPage();
             this.titlu2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autor2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gen2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.impr2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabStat = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1.SuspendLayout();
             this.tabDisponibile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabImprum.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabStat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -166,15 +172,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(901, 542);
             this.dataGridView2.TabIndex = 1;
             // 
-            // tabStat
-            // 
-            this.tabStat.Location = new System.Drawing.Point(4, 25);
-            this.tabStat.Name = "tabStat";
-            this.tabStat.Size = new System.Drawing.Size(917, 557);
-            this.tabStat.TabIndex = 2;
-            this.tabStat.Text = "Statistici biblioteca";
-            this.tabStat.UseVisualStyleBackColor = true;
-            // 
             // titlu2
             // 
             this.titlu2.HeaderText = "Titlu";
@@ -207,6 +204,33 @@
             this.impr2.ReadOnly = true;
             this.impr2.Width = 207;
             // 
+            // tabStat
+            // 
+            this.tabStat.Controls.Add(this.chart1);
+            this.tabStat.Location = new System.Drawing.Point(4, 25);
+            this.tabStat.Name = "tabStat";
+            this.tabStat.Size = new System.Drawing.Size(917, 557);
+            this.tabStat.TabIndex = 2;
+            this.tabStat.Text = "Statistici biblioteca";
+            this.tabStat.UseVisualStyleBackColor = true;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(84, 51);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(611, 412);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
             // Mockup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -223,6 +247,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabImprum.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabStat.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,5 +272,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn autor2;
         private System.Windows.Forms.DataGridViewTextBoxColumn gen2;
         private System.Windows.Forms.DataGridViewTextBoxColumn impr2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

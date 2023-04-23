@@ -13,15 +13,13 @@ namespace AplicatieFreeBook.Controllers
     {
 
         private List<Imprumut> imprumuturi;
-        private List<Carte> cartii;
 
         public ControllerImprumutari()
         {
 
             imprumuturi = new List<Imprumut>();
-            cartii = new List<Carte>();
+           
             load();
-            load1();
         }
         
         public void load() {
@@ -47,42 +45,19 @@ namespace AplicatieFreeBook.Controllers
 
 
         }
-        public void load1()
+       
+
+        public List<string> getBooks(DateTime nowtime)
         {
-
-            string path = Application.StartupPath + @"/data/carti.txt";
-
-            StreamReader streamReader = new StreamReader(path);
-
-            string text;
-
-            while ((text = streamReader.ReadLine()) != null)
-            {
-
-                Carte a = new Carte(text);
-
-                cartii.Add(a);
-
-            }
-
-            streamReader.Close();
-
-
-
-
-        }
-
-        public List<Carte> getCartes(DateTime nowtime)
-        {
-            List<Carte> cartiiNeimp = new List<Carte>();
+            List<string> cartiiNeimp = new List<string>();
 
             for(int i = 0; i < imprumuturi.Count; i++)
             {
-                for (int j = 0; j < cartii.Count; j++)
+                for (int j = 0; j < imprumuturi.Count; j++)
                 { 
-                    if (imprumuturi[i].getData_Imprumut().AddDays(30) <= nowtime && imprumuturi[i].getcarte().Equals(cartii[j].getTitlu()))
+                    if (imprumuturi[i].getData_Imprumut().AddDays(30) <= nowtime && imprumuturi[i].getcarte().Equals(imprumuturi[j].getcarte()))
                     {
-                        cartiiNeimp.Add(cartii[j]);
+                        cartiiNeimp.Add(imprumuturi[j].getcarte());
                     }
                 }
                
@@ -132,6 +107,103 @@ namespace AplicatieFreeBook.Controllers
             return id;
         }
 
+
+       
+    //functie ce returneaza numarul de imprumuturi
+
+        public int contorImprumut(int idCarte)
+        {
+            int ct = 0;
+            for(int i = 0; i < imprumuturi.Count; i++)
+            {
+
+                if (imprumuturi[i].getId_Carte() == idCarte)
+                {
+                    ct++;
+                }
+
+            }
+
+            return ct;
+        }
+
+        public void eliminare(int[] v, int poz)
+        {
+
+            for(int i=poz;i<v.Length-1; i++)
+            {
+                v[i] = v[i + 1];
+            }
+            Array.Resize(ref v, v.Length - 1);
+        }
+
+        public int[] frecventa()
+        {
+
+            int[] f = new int[100];
+
+            for(int i = 0; i < imprumuturi.Count; i++)
+            {
+                f[imprumuturi[i].getId_Carte()]++;
+            }
+
+            return f;
+        }
+
+        public int[] frecventaMaxi()
+        {
+            int[] fp = frecventa();
+
+            Array.Sort(fp);
+            Array.Reverse(fp);
+
+            return fp;  
+        }
+
+        public List<int> iduri4Maxime()
+        {
+            int[] f = frecventa();
+            List<int> idUriMaxime = new List<int>();
+
+            int id1=0;
+            for (int i = 0; i < 4; i++)
+            {
+                int maxi = -1;
+                for (int j = 0; j < 23; j++)
+                {
+                    if (f[j] != 0 && f[j] > maxi)
+                    {
+                        maxi = f[j];
+                        id1 = j;
+                    }
+                }
+                eliminare(f, id1);
+                idUriMaxime.Add(id1);
+            }
+            return idUriMaxime;
+        }
+
+        public List<string> listNume()
+        {
+            List<string> list = new List<string>();
+            List<int> listid = iduri4Maxime();
+            for (int i = 0; i < listid.Count; i++)
+            { 
+                //MessageBox.Show(listid[i].ToString());
+                for (int j = 0; j < imprumuturi.Count; j++)
+                {
+                   
+                    if(imprumuturi[j].getId_Carte() == listid[i])
+                    {
+
+                        list.Add(imprumuturi[j].getcarte());
+                        break;
+                    }
+                }
+            }
+
+            return list;
+        }
 
     }
 }

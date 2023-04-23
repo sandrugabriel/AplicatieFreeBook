@@ -3,9 +3,12 @@ using AplicatieFreeBook.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -31,8 +34,13 @@ namespace AplicatieFreeBook.Panel_uri
         private DataGridViewTextBoxColumn autor2;
         private DataGridViewTextBoxColumn dataImpr2;
         private DataGridViewTextBoxColumn datadispon2;
-
-
+        private Chart chart;
+        private ChartArea chartArea;
+        private  Series series;
+        private List<string> listNume;
+        private List<int> listId4maxi;
+        private int[] listFrecventa;
+        private Legend legend;
 
         AplicatieFreeBook form;
 
@@ -42,7 +50,7 @@ namespace AplicatieFreeBook.Panel_uri
         private string email;
 
         private List<Carte> cartiList;
-
+        private List<string> stringCarti;
         private List<Carte> imprList;
 
         public pnlMeniu(string email1, AplicatieFreeBook form1)
@@ -57,6 +65,9 @@ namespace AplicatieFreeBook.Panel_uri
             controllerImprumutari = new ControllerImprumutari();
             cartiList = new List<Carte>();
             imprList = new List<Carte>();
+            listNume = new List<string>();
+            listId4maxi = new List<int>();
+            listFrecventa = new int[100];
 
             this.Name = "pnlMeniu";
             this.Text = "Meniu FreeBook";
@@ -73,7 +84,10 @@ namespace AplicatieFreeBook.Panel_uri
             this.autor = new DataGridViewTextBoxColumn();
             this.gen = new DataGridViewTextBoxColumn();
             this.imprumutare = new DataGridViewTextBoxColumn();
-
+            this.chart = new Chart();
+            this.chartArea = new ChartArea();
+            this.series = new Series();
+            this.legend = new Legend();
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -92,7 +106,7 @@ namespace AplicatieFreeBook.Panel_uri
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 24);
             this.label1.Text = "Email:";
-             
+
             // label2
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 10.8F);
@@ -100,7 +114,7 @@ namespace AplicatieFreeBook.Panel_uri
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 24);
             this.label2.Text = email;
-             
+
             // tabControl1
             this.tabControl1.Controls.Add(this.tabDisponibile);
             this.tabControl1.Controls.Add(this.tabImprum);
@@ -108,7 +122,7 @@ namespace AplicatieFreeBook.Panel_uri
             this.tabControl1.Location = new System.Drawing.Point(2, 50);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Size = new System.Drawing.Size(925, 586);
-             
+
             // tabDisponibile
             this.tabDisponibile.Controls.Add(this.dataGridView1);
             this.tabDisponibile.Location = new System.Drawing.Point(4, 25);
@@ -122,13 +136,45 @@ namespace AplicatieFreeBook.Panel_uri
             this.tabImprum.Name = "tabImprum";
             this.tabImprum.Size = new System.Drawing.Size(917, 557);
             this.tabImprum.Text = "Carti imprumutate";
-            
+
+
+
+
+            //chart
+            this.chart.Location = new System.Drawing.Point(10, 51);
+            this.chart.Size = new System.Drawing.Size(611, 412);
+            listFrecventa = controllerImprumutari.frecventaMaxi();
+            listId4maxi = controllerImprumutari.iduri4Maxime();
+            listNume = controllerImprumutari.listNume();
+          
+            chartArea.Name = "ChartArea";
+            this.chart.ChartAreas.Add(chartArea);
+            legend.Name = "Legend";
+            this.chart.Legends.Add(legend);
+            this.chart.Name = "chart";
+            series.ChartType = SeriesChartType.Pie;
+            for (int i = 0; i < listNume.Count; i++)
+            {
+
+                DataPoint datapoint = new DataPoint(0, listFrecventa[i]);
+                datapoint.Label = listFrecventa[i].ToString();
+                datapoint.LegendText = listNume[i];
+                series.Points.Add(datapoint);
+
+            }
+            this.chart.Series.Add(series);
+            this.chart.Text = "chart";
+
+
             // tabStat
+            this.tabStat.Controls.Add(chart);
             this.tabStat.Location = new System.Drawing.Point(4, 25);
             this.tabStat.Name = "tabStat";
             this.tabStat.Size = new System.Drawing.Size(917, 557);
             this.tabStat.Text = "Statistici biblioteca";
              
+            
+
             // dataGridView1
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -143,8 +189,10 @@ namespace AplicatieFreeBook.Panel_uri
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(901, 542);
             this.dataGridView1.CellClick += new DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            
+            stringCarti = controllerImprumutari.getBooks(DateTime.Now);
+            cartiList = controllerCarti.getCartiNeimprum(stringCarti);
 
-            cartiList = controllerImprumutari.getCartes(DateTime.Now);
             foreach (var produs in cartiList)
             {
                 dataGridView1.Rows.Add(produs.getId(),produs.getTitlu(), produs.getAutor(), produs.getGen(),"");

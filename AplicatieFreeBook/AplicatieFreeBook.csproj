@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +62,12 @@
     <Compile Include="Mockups\Mockup.Designer.cs">
       <DependentUpon>Mockup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mockups\MockupChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupChart.Designer.cs">
+      <DependentUpon>MockupChart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Carte.cs" />
     <Compile Include="Models\Imprumut.cs" />
     <Compile Include="Models\Utilizator.cs" />
@@ -83,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mockups\Mockup.resx">
       <DependentUpon>Mockup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupChart.resx">
+      <DependentUpon>MockupChart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

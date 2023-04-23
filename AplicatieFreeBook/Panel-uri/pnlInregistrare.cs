@@ -193,12 +193,13 @@ namespace AplicatieFreeBook.Panel_uri
             }
             else
             {
+                int id = controllerUtilizatori.generareID();
                 string nume = txtNume.Text;
                 string prenume = txtPrenume.Text;
                 string parola = txtParola.Text;
                 string email = txtEmail.Text;
 
-                string textul = email + "*" + parola + "*" + nume + "*" + prenume;
+                string textul = id.ToString() + "*" +email + "*" + parola + "*" + nume + "*" + prenume;
                 controllerUtilizatori.saveNewClient(textul);
                 this.form.removePnl("pnlInregistrare");
                 this.form.Controls.Add(new pnlMeniu(txtEmail.Text,form));
